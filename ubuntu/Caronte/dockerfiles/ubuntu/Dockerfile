@@ -1,6 +1,6 @@
 FROM ubuntu:24.04
-ENV USUARIO="pepe"
-ENV PASSWORD="abc"
+ENV USUARIO="DARdennis"
+ENV PASSWORD="DARdennis"
 # ENV CONTEXTO=${CONTEXTO}
 ARG TZ
 ARG CONTEXT
@@ -31,16 +31,14 @@ EXPOSE 22
 RUN mkdir /root/logs
 RUN mkdir /root/datos
 RUN touch /root/logs/build.log
-COPY ./proyectos/${PROYECTO}/deploy/usuarios.txt /root/datos
-COPY ./commons/id_rsa.pub /root/datos
+COPY ./common/id_rsa.pub /root/datos
 RUN echo "contexto: ${D_FILES}" 
 
 RUN mkdir /root/admin
 COPY ./dockerfiles/ubuntu/admin /root/admin
 
-# COPY ./datos/bienvenida.j2 /root
 RUN chmod +x /root/admin/start.sh
 WORKDIR /root/admin
 
 # RUN dos2unix /root/admin/start.sh 
-ENTRYPOINT ["/root/admin/start.sh"]
+ENTRYPOINT ["/etc/init.d/ssh start &"]

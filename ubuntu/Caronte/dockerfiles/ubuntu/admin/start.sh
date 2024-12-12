@@ -1,7 +1,7 @@
 #!/bin/bash
 set -e
 
-source /root/admin/usuarios/usuarios.sh
+source ./usuarios/usuarios.sh
 source /root/admin/ssh/ssh.sh
 
 chmod +x /root/admin/usuarios/usuarios.sh
