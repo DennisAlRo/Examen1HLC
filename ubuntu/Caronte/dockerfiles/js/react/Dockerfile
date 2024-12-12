@@ -9,11 +9,8 @@ ARG TZ
 ARG GITHUB
 
 
-USER root
-RUN apt update && apt install -yq --no-install-recommends \
-    npm install
-
-COPY ${GITHUB} /home/${USUARIO}/app 
+RUN mkdir /home/${USUARIO}/app  
+RUN gitclone ${GITHUB} /home/${USUARIO}/app
 RUN apt-get update && apt-get install -y curl gnupg software-properties-common
 
 RUN curl -fsSL https://deb.nodesource.com/setup_18.x | bash -
@@ -21,6 +18,10 @@ RUN curl -fsSL https://deb.nodesource.com/setup_18.x | bash -
 RUN apt-get install -y nodejs
 
 RUN node --version && npm --version 
+
+COPY ./proyectos/${PROYECTO}/deploy/docker-compose.yml  ./js/react/admin
+EXPOSE 3000
+
 
 WORKDIR /root/admin/nginx
 ENTRYPOINT ["./admin/start.sh"]
