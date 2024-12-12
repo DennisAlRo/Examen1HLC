@@ -1,5 +1,5 @@
 ARG AUTOR
-FROM ${AUTOR}/nginx
+FROM DARdennis/nginx
 
 ENV USUARIO="DARdennis"
 ENV PASSWORD="DARdennis"

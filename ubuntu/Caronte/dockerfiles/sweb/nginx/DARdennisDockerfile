@@ -1,5 +1,5 @@
 ARG AUTOR
-FROM ${AUTOR}/ubuntubase
+FROM DARdennis/ubuntubase
 
 ENV USUARIO="DARdennis"
 ENV PASSWORD="DARdennis"

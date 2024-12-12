@@ -3,7 +3,7 @@ services:
   servidor:
     build:
       context: ${CONTEXTO}
-      dockerfile: ./dockerfiles/sweb/nginx/Dockerfile
+      dockerfile: ./dockerfiles/sweb/nginx/DARdennisDockerfile
       # dockerfile: ./dockerfiles/sweb/nginx/Dockerfilemulti
 
       args: 
@@ -11,7 +11,7 @@ services:
         - TZ=${TZ}
         - PROYECTO=${PROYECTO}
         - AUTOR=${AUTOR}
-    image: ${AUTOR}/nginx
+    image: DARdennis/nginx
     container_name: nginx1
     hostname: ${HOSTNAME}
     env_file:

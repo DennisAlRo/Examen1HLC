@@ -3,7 +3,7 @@ services:
   servidor:
     build:
       context: ${CONTEXTO}
-      dockerfile: ./dockerfiles/sautocaravanenado/react/Dockerfile
+      dockerfile: ./dockerfiles/sautocaravanenado/react/DARdennisDockerfile
 
       args: 
         - CONTEXT=${CONTEXTO}
@@ -19,7 +19,7 @@ services:
       - USUARIO=${USUARIO}
       - PASSWORD=${PASSWD}
     ports:
-      - "${PORT_ORIGEN}:80"
+      - "${PORT_ORIGEN}:3000"
     volumes:
       - ./logs:/root/logs
       - ./html:/var/www/html
